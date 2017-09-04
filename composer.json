@@ -1,5 +1,5 @@
 {
-    "name": ":vendor/:package_name",
+    "name": "phwoolcon/skeleton",
     "type": "library",
     "description": ":package_description",
     "keywords": [
@@ -7,7 +7,7 @@
         ":package_name"
     ],
     "homepage": "https://github.com/:vendor/:package_name",
-    "license": "MIT",
+    "license": ":license",
     "authors": [
         {
             "name": ":author_name",
