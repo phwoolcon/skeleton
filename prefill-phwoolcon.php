@@ -104,6 +104,24 @@ $readme = file_get_contents($readmeFile = __DIR__ . '/README.md');
 $replaceStart = strpos($readme, '**Note:** Replace ```');
 $replaceEnd = strpos($readme, '## Structure', $replaceStart) - 2;
 $readme = substr_replace($readme, $values['package_description'], $replaceStart, $replaceEnd - $replaceStart);
+
+// Replace install in readme
+$replaceStart = strpos($readme, '## Install');
+$replaceEnd = strpos($readme, '## Usage', $replaceStart) - 2;
+$install = <<<EOT
+## Install
+
+Install as a `phwoolcon` package
+
+```bash
+git clone git@github.com:phwoolcon/bootstrap.git {$values['package_name']}
+cd {$values['package_name']}
+bin/import-package {$values['git_repo']}
+```
+
+EOT;
+
+$readme = substr_replace($readme, $install, $replaceStart, $replaceEnd - $replaceStart);
 file_put_contents($readmeFile, $readme);
 
 echo "Done.\n";
