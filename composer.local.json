@@ -1,0 +1,17 @@
+{
+    "require": {
+        ":vendor/:package_name": "~1.0"
+    },
+    "phwoolcon-packages": [
+        {
+            "name": ":vendor/:package_name",
+            "url": ":git_repo"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": ":git_repo"
+        }
+    ]
+}
