@@ -99,5 +99,12 @@ if ($values['license'] == 3) {
     rename(__DIR__ . '/LICENSE.APACHE2.md', __DIR__ . '/LICENSE.md');
 }
 
+// Replace description in readme
+$readme = file_get_contents($readmeFile = __DIR__ . '/README.md');
+$replaceStart = strpos($readme, '**Note:** Replace ```');
+$replaceEnd = strpos($readme, '## Structure', $replaceStart) - 2;
+$readme = substr_replace($readme, $values['package_description'], $replaceStart, $replaceEnd - $replaceStart);
+file_put_contents($readmeFile, $readme);
+
 echo "Done.\n";
 echo "Now you should remove the file '" . basename(__FILE__) . "'.\n";
