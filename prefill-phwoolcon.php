@@ -12,10 +12,15 @@ if (!preg_match($namePattern, $values['package_name'])) {
 }
 
 $packagePath = '';
+$packageParentPath = '';
 if (isset($_SERVER['PHWOOLCON_ROOT_PATH'])) {
-    $packagePath = "{$_SERVER['PHWOOLCON_ROOT_PATH']}/{$values['package_vendor']}/{$values['package_name']}";
+    $packagePath = "{$_SERVER['PHWOOLCON_ROOT_PATH']}/vendor/{$values['package_vendor']}/{$values['package_name']}";
     if (file_exists($packagePath)) {
         echo "Error: Package {$values['package_vendor']}/{$values['package_name']} already exists!";
+        exit(1);
+    }
+    if (is_file($packageParentPath = dirname($packagePath))) {
+        echo "Error: Invalid vendor name {$values['package_vendor']}";
         exit(1);
     }
 }
@@ -166,13 +171,17 @@ unlink(__DIR__ . '/prefill.php');
 unlink(__FILE__);
 
 // Install as a phwoolcon package
-if ($packagePath) {
-    rename(__DIR__, $packagePath);
-    chdir($packagePath);
+if ($packagePath && $packageParentPath) {
+    if (!is_dir($packageParentPath)) {
+        mkdir($packageParentPath, 0777, true);
+    }
+    chdir(__DIR__);
     $gitRepo = escapeshellarg($values['git_repo']);
     $gitCmd = "git init && git add ./ && git remote add origin {$gitRepo}";
     $process = proc_open($gitCmd, $fds = [STDIN, STDOUT, STDERR], $pipes);
     proc_close($process);
+    rename(__DIR__, $packagePath);
+    chdir($packagePath);
 }
 
 echo "Done.\n";
