@@ -24,6 +24,15 @@ $phwoolconReplacements = [
     'phwoolcon/skeleton' => function () use (&$values) {
         return "{$values['package_vendor']}/{$values['package_name']}";
     },
+    'Phwoolcon\\Skeleton' => function () use (&$values) {
+        return $values['psr4_namespace'];
+    },
+    ':psr_vendor' => function () use (&$values) {
+        return $values['psr_vendor'];
+    },
+    ':psr_package' => function () use (&$values) {
+        return $values['psr_package'];
+    },
     ':licensor' => function () use (&$values) {
         return $values['licensor'];
     },
@@ -74,8 +83,9 @@ foreach ($phwoolconFields as $f => $field) {
 }
 echo "\n";
 
-$localComposerFile = __DIR__ . '/composer.local.json';
-$files[] = $localComposerFile;
+$files[] = __DIR__ . '/composer.local.json';
+$files[] = __DIR__ . '/phwoolcon-package/di.php';
+$files[] = __DIR__ . '/phwoolcon-package/phwoolcon-package-skeleton.php';
 
 foreach ($files as $f) {
     $contents = file_get_contents($f);
@@ -120,12 +130,20 @@ bin/import-package {$values['git_repo']}
 ```
 
 EOT;
-
 $readme = substr_replace($readme, $install, $replaceStart, $replaceEnd - $replaceStart);
+
 file_put_contents($readmeFile, $readme);
 
-echo "Done.\n";
+// Rename skeleton files
+rename(__DIR__ . '/phwoolcon-package/phwoolcon-package-skeleton.php',
+    __DIR__ . "/phwoolcon-package/phwoolcon-package-{$values['package_vendor']}-{$values['package_name']}.php");
+rename(__DIR__ . '/phwoolcon-package/locale/en/skeleton.php',
+    __DIR__ . "/phwoolcon-package/locale/en/{$values['package_vendor']}-{$values['package_name']}.php");
+rename(__DIR__ . '/phwoolcon-package/locale/zh_CN/skeleton.php',
+    __DIR__ . "/phwoolcon-package/locale/zh_CN/{$values['package_vendor']}-{$values['package_name']}.php");
 
 // Remove prefill script
 unlink(__DIR__ . '/prefill.php');
 unlink(__FILE__);
+
+echo "Done.\n";
