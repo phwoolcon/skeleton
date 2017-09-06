@@ -3,11 +3,11 @@ include __DIR__ . '/prefill.php';
 /* @var array $values */
 $namePattern = '|^[\w\-\.]+$|';
 if (!preg_match($namePattern, $values['package_vendor'])) {
-    echo "Error: Invalid vendor name {$values['package_vendor']}";
+    echo "Error: Invalid vendor name {$values['package_vendor']}\n";
     exit(1);
 }
 if (!preg_match($namePattern, $values['package_name'])) {
-    echo "Error: Invalid package name {$values['package_name']}";
+    echo "Error: Invalid package name {$values['package_name']}\n";
     exit(1);
 }
 
@@ -16,11 +16,11 @@ $packageParentPath = '';
 if (isset($_SERVER['PHWOOLCON_ROOT_PATH'])) {
     $packagePath = "{$_SERVER['PHWOOLCON_ROOT_PATH']}/vendor/{$values['package_vendor']}/{$values['package_name']}";
     if (file_exists($packagePath)) {
-        echo "Error: Package {$values['package_vendor']}/{$values['package_name']} already exists!";
+        echo "Error: Package {$values['package_vendor']}/{$values['package_name']} already exists!\n";
         exit(1);
     }
     if (is_file($packageParentPath = dirname($packagePath))) {
-        echo "Error: Invalid vendor name {$values['package_vendor']}";
+        echo "Error: Invalid vendor name {$values['package_vendor']}\n";
         exit(1);
     }
 }
