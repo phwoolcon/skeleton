@@ -1,5 +1,15 @@
 <?php
 include __DIR__ . '/prefill.php';
+/* @var array $values */
+$namePattern = '|^[\w\-\.]+$|';
+if (!preg_match($namePattern, $values['package_vendor'])) {
+    echo "Invalid vendor name {$values['package_vendor']}";
+    exit(1);
+}
+if (!preg_match($namePattern, $values['package_name'])) {
+    echo "Invalid package name {$values['package_name']}";
+    exit(1);
+}
 
 echo "\n";
 echo "----------------------------------------------------------------------\n";
