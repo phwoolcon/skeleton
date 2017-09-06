@@ -125,4 +125,7 @@ $readme = substr_replace($readme, $install, $replaceStart, $replaceEnd - $replac
 file_put_contents($readmeFile, $readme);
 
 echo "Done.\n";
-echo "Now you should remove the file '" . basename(__FILE__) . "'.\n";
+
+// Remove prefill script
+unlink(__DIR__ . '/prefill.php');
+unlink(__FILE__);
