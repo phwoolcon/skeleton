@@ -1,18 +1,18 @@
 {
     "name": "phwoolcon/skeleton",
     "type": "library",
-    "description": ":package_description",
+    "description": "packagist_colon_package_description",
     "keywords": [
-        ":vendor",
-        ":package_name"
+        "packagist_colon_vendor",
+        "packagist_colon_package_name"
     ],
-    "homepage": "https://github.com/:vendor/:package_name",
-    "license": ":license",
+    "homepage": "https://github.com/packagist_colon_vendor/packagist_colon_package_name",
+    "license": "packagist_colon_license",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": ":author_website",
+            "name": "packagist_colon_author_name",
+            "email": "packagist_colon_author_email@pass_packagist_check.com",
+            "homepage": "packagist_colon_author_website",
             "role": "Developer"
         }
     ],

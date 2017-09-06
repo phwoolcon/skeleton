@@ -1,4 +1,11 @@
 <?php
+$composerFile = __DIR__ . '/composer.json';
+$colonRestoredContent = str_replace([
+    'packagist_colon_',
+    '@pass_packagist_check.com',
+], [':', ''], file_get_contents($composerFile));
+file_put_contents($composerFile, $colonRestoredContent);
+
 include __DIR__ . '/prefill.php';
 /* @var array $values */
 $namePattern = '|^[\w\-\.]+$|';
