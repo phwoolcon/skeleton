@@ -13,3 +13,9 @@ trim_trailing_whitespace = true
 
 [*.md]
 trim_trailing_whitespace = false
+
+[*.min.js]
+insert_final_newline = false
+
+[*.min.css]
+insert_final_newline = false
