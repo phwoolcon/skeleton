@@ -117,7 +117,11 @@ echo "\n";
 
 $files[] = __DIR__ . '/composer.local.json';
 $files[] = __DIR__ . '/phwoolcon-package/di.php';
-$files[] = __DIR__ . '/phwoolcon-package/phwoolcon-package-skeleton.php';
+$files[] = __DIR__ . '/phwoolcon-package/package.php';
+$files[] = __DIR__ . '/phwoolcon-package/routes.php';
+$files[] = __DIR__ . '/phwoolcon-package/views/admin/default/example/users.phtml';
+$files[] = __DIR__ . '/src/Controllers/AdminController.php';
+$files[] = __DIR__ . '/src/Controllers/WebApiController.php';
 
 foreach ($files as $f) {
     $contents = file_get_contents($f);
@@ -147,32 +151,13 @@ $replaceStart = strpos($readme, '**Note:** Replace ```');
 $replaceEnd = strpos($readme, '## Structure', $replaceStart) - 2;
 $readme = substr_replace($readme, $values['package_description'], $replaceStart, $replaceEnd - $replaceStart);
 
-// Replace install in readme
-$replaceStart = strpos($readme, '## Install');
-$replaceEnd = strpos($readme, '## Usage', $replaceStart) - 2;
-$install = <<<EOT
-## Install
-
-Install as a `phwoolcon` package
-
-```bash
-git clone git@github.com:phwoolcon/bootstrap.git {$values['package_name']}
-cd {$values['package_name']}
-bin/import-package {$values['git_repo']}
-```
-
-EOT;
-$readme = substr_replace($readme, $install, $replaceStart, $replaceEnd - $replaceStart);
-
 file_put_contents($readmeFile, $readme);
 
 // Rename skeleton files
-rename(__DIR__ . '/phwoolcon-package/phwoolcon-package-skeleton.php',
-    __DIR__ . "/phwoolcon-package/phwoolcon-package-{$values['package_vendor']}-{$values['package_name']}.php");
 rename(__DIR__ . '/phwoolcon-package/locale/en/skeleton.php',
-    __DIR__ . "/phwoolcon-package/locale/en/{$values['package_vendor']}-{$values['package_name']}.php");
+    __DIR__ . "/phwoolcon-package/locale/en/{$values['package_name']}.php");
 rename(__DIR__ . '/phwoolcon-package/locale/zh_CN/skeleton.php',
-    __DIR__ . "/phwoolcon-package/locale/zh_CN/{$values['package_vendor']}-{$values['package_name']}.php");
+    __DIR__ . "/phwoolcon-package/locale/zh_CN/{$values['package_name']}.php");
 
 // Remove prefill script
 unlink(__DIR__ . '/prefill.php');

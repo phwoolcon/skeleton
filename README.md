@@ -14,31 +14,47 @@ PSRs you support to avoid any confusion with users and contributors.
 
 ## Structure
 
-If any of the following are applicable to your project, then the directory structure should follow industry best practices by being named the following.
-
+The directory structure of this project should be like this:
 ```
-bin/        
-config/
+phwoolcon-package/
+    assets/
+    config/
+    locale/
+    views/
 src/
+    Controllers/
+    Models/
 tests/
-vendor/
 ```
-
 
 ## Install
+Install as a `phwoolcon` package.
 
-Via Composer
+If this library has been published to packagist.org or GitHub.com
+```bash
+bin/import-package :vendor/:package_name
+```
 
-``` bash
-$ composer require :vendor/:package_name
+If this is a private repository
+```bash
+bin/import-package :git_repo
 ```
 
 ## Usage
-
-``` php
-$skeleton = new League\Skeleton();
-echo $skeleton->echoPhrase('Hello, League!');
-```
+### Configuration
+See [phwoolcon-package/config/](phwoolcon-package/config/)
+### Templates
+See [phwoolcon-package/views/](phwoolcon-package/views/)
+### Assets
+See [phwoolcon-package/assets/](phwoolcon-package/assets/)
+### Locale
+See [phwoolcon-package/locale/](phwoolcon-package/locale/)
+### Routes
+See [phwoolcon-package/routes.php](phwoolcon-package/routes.php)
+### Dependency Injection
+See [phwoolcon-package/di.php](phwoolcon-package/di.php)
+### Controllers
+See [src/Controllers/](src/Controllers/)
 
 ## Change log
 
