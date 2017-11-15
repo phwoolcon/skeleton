@@ -171,13 +171,13 @@ if ($packagePath && $packageParentPath) {
     if (!is_dir($packageParentPath)) {
         mkdir($packageParentPath, 0777, true);
     }
-    chdir(__DIR__);
+    chdir(dirname(__DIR__));
+    rename(__DIR__, $packagePath);
+    chdir($packagePath);
     $gitRepo = escapeshellarg($values['git_repo']);
     $gitCmd = "git init && git add ./ && git remote add origin {$gitRepo}";
     $process = proc_open($gitCmd, $fds = [STDIN, STDOUT, STDERR], $pipes);
     proc_close($process);
-    rename(__DIR__, $packagePath);
-    chdir($packagePath);
 }
 
 echo "Done.\n";
