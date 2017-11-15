@@ -98,6 +98,9 @@ $phwoolconReplacements = [
         ];
         return isset($licenses[$values['license']]) ? $licenses[$values['license']] : $licenses[1];
     },
+    'bootstrap="vendor/autoload.php"' => function () {
+        return 'bootstrap="vendor/phwoolcon/test-starter/start.php"';
+    },
 ];
 
 foreach ($phwoolconFields as $f => $field) {

@@ -1,22 +1,11 @@
 # Changelog
 
-All notable changes to `:package_name` will be documented in this file.
-
-Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
-
-## NEXT - YYYY-MM-DD
-
-### Added
-- Nothing
-
-### Deprecated
-- Nothing
-
-### Fixed
-- Nothing
-
-### Removed
-- Nothing
-
-### Security
-- Nothing
+## [v1.0.0](https://github.com/phwoolcon/phwoolcon/releases/tag/v1.0.0) (yyyy-mm-dd)
+#### Features:
+* Nothing
+#### Bug Fixes:
+* Nothing
+#### Refactor:
+* Nothing
+#### Tests:
+* Nothing
