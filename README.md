@@ -1,11 +1,11 @@
 # :package_name
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
-[![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-travis]][link-travis]
 [![Coverage Status][ico-scrutinizer]][link-scrutinizer]
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
+[![Software License][ico-license]](LICENSE.md)
 
 **Note:** Replace ```:author_name``` ```:author_username``` ```:author_website``` ```:author_email``` ```:vendor``` ```:package_name``` ```:package_description``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line. You can run `$ php prefill.php` in the command line to make all replacements at once. Delete the file prefill.php as well.
 
@@ -15,16 +15,25 @@ PSRs you support to avoid any confusion with users and contributors.
 ## Structure
 
 The directory structure of this project should be like this:
-```
+```bash
 phwoolcon-package/
-    assets/
-    config/
-    locale/
-    views/
+    assets/         # Static assets (js/css/image/fonts ... etc)
+    config/         # Config files
+    locale/         # Translation files
+        en/
+        zh_CN/
+    views/          # Templates
 src/
     Controllers/
     Models/
 tests/
+    resource/       # Test resources
+        assets/
+        config/
+        locale/
+        views/
+    Unit/           # Unit test cases
+    Integration/    # Integration test cases
 ```
 
 ## Install
@@ -63,7 +72,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 ## Testing
 
 ``` bash
-$ composer test
+$ vendor/bin/phpunit
 ```
 
 ## Contributing

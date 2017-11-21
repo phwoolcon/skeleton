@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="start.php"
+<phpunit bootstrap="vendor/phwoolcon/test-starter/start.php"
     backupGlobals="false"
     backupStaticAttributes="false"
     colors="true"
@@ -10,8 +10,11 @@
     processIsolation="false"
     stopOnFailure="false">
     <testsuites>
-        <testsuite name=":psr_package Test Suite">
-            <directory>tests</directory>
+        <testsuite name=":psr_package Unit Tests">
+            <directory>tests/Unit</directory>
+        </testsuite>
+        <testsuite name=":psr_package Integration Tests">
+            <directory>tests/Integration</directory>
         </testsuite>
     </testsuites>
     <filter>
@@ -24,6 +27,6 @@
         <log type="junit" target="build/report.junit.xml"/>
         <log type="coverage-html" target="build/coverage" charset="UTF-8" yui="true" highlight="true"/>
         <log type="coverage-text" target="build/coverage.txt"/>
-        <log type="coverage-clover" target="build/logs/clover.xml"/>
+        <log type="coverage-clover" target="build/clover.xml"/>
     </logging>
 </phpunit>
