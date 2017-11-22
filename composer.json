@@ -36,7 +36,7 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit --stderr --verbose",
+        "test": "vendor/bin/phpunit",
         "check-style": "vendor/bin/phpcs",
         "fix-style": "vendor/bin/phpcbf"
     },

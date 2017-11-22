@@ -30,7 +30,7 @@ script:
   # Check code style
   - vendor/bin/phpcs
   # Running unit test
-  - vendor/bin/phpunit --stderr --verbose
+  - vendor/bin/phpunit
 
 after_success:
   - |
