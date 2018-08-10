@@ -92,17 +92,17 @@ If you discover any security related issues, please email :author_email instead 
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/github/release/:vendor/:package_name.svg?style=flat-square
+[ico-version]: https://img.shields.io/github/release/phwoolcon/skeleton.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/:vendor/:package_name/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/:vendor/:package_name.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/:vendor/:package_name.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/:vendor/:package_name.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/phwoolcon/skeleton/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/phwoolcon/skeleton.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/phwoolcon/skeleton.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/phwoolcon/skeleton.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/:vendor/:package_name
-[link-travis]: https://travis-ci.org/:vendor/:package_name
-[link-scrutinizer]: https://scrutinizer-ci.com/g/:vendor/:package_name/code-structure/master/code-coverage
-[link-code-quality]: https://scrutinizer-ci.com/g/:vendor/:package_name
-[link-downloads]: https://packagist.org/packages/:vendor/:package_name
+[link-packagist]: https://packagist.org/packages/phwoolcon/skeleton
+[link-travis]: https://travis-ci.org/phwoolcon/skeleton
+[link-scrutinizer]: https://scrutinizer-ci.com/g/phwoolcon/skeleton/code-structure/master/code-coverage
+[link-code-quality]: https://scrutinizer-ci.com/g/phwoolcon/skeleton
+[link-downloads]: https://packagist.org/packages/phwoolcon/skeleton
 [link-author]: https://github.com/:author_username
 [link-contributors]: ../../contributors
