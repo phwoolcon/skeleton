@@ -4,7 +4,8 @@ $colonRestoredContent = str_replace([
     'packagist-colon-',
     '@pass-packagist-check.com',
     'https://pass-packagist-check.com/',
-], [':', '', ''], file_get_contents($composerFile));
+    '"license": "MIT"',
+], [':', '', '', '"license": ":license"'], file_get_contents($composerFile));
 file_put_contents($composerFile, $colonRestoredContent);
 
 include __DIR__ . '/prefill.php';

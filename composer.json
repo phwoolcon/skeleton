@@ -7,7 +7,7 @@
         "packagist-colon-package_name"
     ],
     "homepage": "https://github.com/:vendor/:package_name",
-    "license": "packagist-colon-license",
+    "license": "MIT",
     "authors": [
         {
             "name": "packagist-colon-author_name",
