@@ -2,8 +2,11 @@
 
 return [
     ':vendor/:package_name' => [
-        'di' => [
+        'di'     => [
             20 => 'di.php', // 20 stands for the loading sequence, bigger number will be loaded later
+        ],
+        'routes' => [
+            20 => 'routes.php', // 20 stands for the loading sequence, bigger number will be loaded later
         ],
 
         'commands' => [

@@ -59,6 +59,9 @@ $phwoolconReplacements = [
     'Phwoolcon\\Skeleton' => function () use (&$values) {
         return $values['psr4_namespace'];
     },
+    'League\\Skeleton' => function () use (&$values) {
+        return $values['psr4_namespace'];
+    },
     ':psr_vendor' => function () use (&$values) {
         return $values['psr_vendor'];
     },
@@ -125,6 +128,7 @@ $files[] = __DIR__ . '/phwoolcon-package/routes.php';
 $files[] = __DIR__ . '/phwoolcon-package/views/admin/default/example/users.phtml';
 $files[] = __DIR__ . '/src/Controllers/AdminController.php';
 $files[] = __DIR__ . '/src/Controllers/WebApiController.php';
+$files[] = __DIR__ . '/tests/Unit/SkeletonClassTest.php';
 
 foreach ($files as $f) {
     $contents = file_get_contents($f);
